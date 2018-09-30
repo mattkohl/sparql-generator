@@ -2,6 +2,7 @@ package com.mattkohl
 
 import slinky.core._
 import slinky.core.annotations.react
+import slinky.core.facade.ReactElement
 import slinky.web.html._
 
 import scala.scalajs.js
@@ -20,7 +21,7 @@ object ReactLogo extends js.Object
 
   private val css = AppCSS
 
-  def render() = {
+  def render(): ReactElement = {
     div(className := "App")(
       header(className := "App-header")(
         img(src := ReactLogo.asInstanceOf[String], className := "App-logo", alt := "logo"),

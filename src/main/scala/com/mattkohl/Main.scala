@@ -15,7 +15,7 @@ import org.scalajs.dom
 object IndexCSS extends js.Object
 
 object Main {
-  val css = IndexCSS
+  val css: IndexCSS.type = IndexCSS
 
   @JSExportTopLevel("entrypoint.main")
   def main(): Unit = {
