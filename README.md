@@ -1,7 +1,7 @@
 # SPARQL Generator
 
-to run:
+to run development server:
 
 ```
-sbt ;fastOptJS::startWebpackDevServer;~fastOptJS
+sbt dev
 ```
