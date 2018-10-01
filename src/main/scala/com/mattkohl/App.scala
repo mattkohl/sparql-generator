@@ -16,7 +16,8 @@ object AppCSS extends js.Object
 @js.native
 object ReactLogo extends js.Object
 
-@react class App extends StatelessComponent {
+@react
+class App extends StatelessComponent {
   type Props = Unit
 
   private val css = AppCSS
@@ -24,11 +25,16 @@ object ReactLogo extends js.Object
   def render(): ReactElement = {
     div(className := "App")(
       header(className := "App-header")(
-        img(src := ReactLogo.asInstanceOf[String], className := "App-logo", alt := "logo"),
-        h1(className := "App-title")("Welcome to React (with Scala.js!)")
+        h2(className := "App-title-h2")(
+          span(className := "App-title-left")("SPARQL"),
+          img(src := ReactLogo.asInstanceOf[String], className := "App-logo", alt := "logo"),
+          span(className := "App-title-right")("Generator"),
+        ),
       ),
-      p(className := "App-intro")(
-        "To get started, edit ", code("App.scala"), " and save to reload."
+      div(className := "App-body")(
+        div(className := "container")(
+          SparqlGenerator()
+        )
       )
     )
   }

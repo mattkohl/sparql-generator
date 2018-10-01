@@ -8,21 +8,57 @@
 }
 
 .App-header {
-    background-color: #222;
-    height: 150px;
-    padding: 20px;
-    color: white;
-}
-
-.App-title {
-    font-size: 1.5em;
+    height: 130px;
+    padding: 0px;
+    margin-top: 40px;
 }
 
 .App-intro {
     font-size: large;
 }
 
+.App-title-left, .App-title-right {
+    vertical-align: 20px;
+}
+
+.App-title-right {
+
+}
+
+.App-title-left {
+    padding-left: 0.63em;
+}
+
+
+.App-body .container {
+    width: 90% !important;
+}
+
+.bgp span {
+    margin: 0 5px;
+}
+
 @keyframes App-logo-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+@media only screen and (max-device-width : 667px) {
+    .App-header {
+        height: 60px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .App-logo {
+        height: 60px;
+    }
+
+    .App-title-left {
+        font-size: 2rem !important;
+    }
+
+    .App-title-right {
+        font-size: 2rem !important;
+    }
 }
