@@ -16,8 +16,7 @@ class SparqlGenerator extends Component {
 
   override def initialState: State = State("", List(), queried=false, List(), List())
 
-
   def render: ReactElement = {
-    div(className := "sparql-generator")("SELECT * WHERE { ?s ?p ?o }")
+    div(className := "sparql-generator")(TripleComponent())
   }
 }

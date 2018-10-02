@@ -21,6 +21,8 @@ libraryDependencies += "me.shadaj" %%% "slinky-hot" % "0.5.0"
 libraryDependencies += "org.scalatest" %%% "scalatest" % "3.0.5" % Test
 
 scalacOptions += "-P:scalajs:sjsDefinedByDefault"
+scalacOptions += "-Ymacro-annotations"
+
 addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full)
 
 version in webpack := "4.5.0"

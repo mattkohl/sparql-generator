@@ -13,15 +13,15 @@ case class SearchResult(text: String, id: Long)
 
 @react
 class SearchBar extends Component {
-  type Props = Unit
+  case class Props(onSearchStringInput: Event => Unit)
   case class State(items: Seq[SearchResult], text: String)
 
   override def initialState = State(Seq.empty, "")
 
   def handleChange(e: Event): Unit = {
-    val eventValue =
-      e.target.asInstanceOf[HTMLInputElement].value
+    val eventValue = e.target.asInstanceOf[HTMLInputElement].value
     setState(_.copy(text = eventValue))
+    props.onSearchStringInput(e)
   }
 
   def handleSubmit(e: Event): Unit = {
@@ -43,22 +43,18 @@ class SearchBar extends Component {
   }
 
   override def render(): ReactElement = {
-    div(
-      h3("TODO"),
-      SearchResultList(items = state.items),
-      form(onSubmit := handleSubmit _)(
+      form(className:= "search-bar", onSubmit := handleSubmit _)(
         input(
           onChange := handleChange _,
           value := state.text
         ),
-        button(s"Add #${state.items.size + 1}")
+        button(s"SUBMIT")
       )
-    )
   }
 }
 
 @react
-class SearchResultList extends StatelessComponent {
+class SearchResults extends StatelessComponent {
   case class Props(items: Seq[SearchResult])
 
   override def render(): ReactElement = {
@@ -66,6 +62,18 @@ class SearchResultList extends StatelessComponent {
       props.items.map { item =>
         li(key := item.id.toString)(item.text)
       }
+    )
+  }
+}
+
+@react
+class Search extends StatelessComponent {
+  case class Props(items: Seq[SearchResult], onSearchStringInput: Event => Unit)
+
+  override def render(): ReactElement = {
+    div(className := "search")(
+      SearchBar(onSearchStringInput=props.onSearchStringInput),
+      SearchResults(items = props.items)
     )
   }
 }
