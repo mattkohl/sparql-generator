@@ -1,12 +1,11 @@
 package com.mattkohl
 
-import slinky.core.{Component, StatelessComponent}
+import slinky.core.Component
 import slinky.core.annotations.react
 import slinky.web.html._
 import org.scalajs.dom.raw.{Event, HTMLInputElement}
 import slinky.core.facade.ReactElement
 
-import scala.scalajs.js.Date
 
 @react
 class TripleComponent extends Component {
@@ -25,5 +24,6 @@ class TripleComponent extends Component {
       Search(items=Seq(), onSearchStringInput=handleSearchStringInput)
     )
   }
-
 }
+
+
